@@ -23,10 +23,25 @@
     transform: translate(-50%,-50%);
 }
 
-/* COMMON----------------------------------------------------- */
-.flex {
+
+
+/* ---------------------- COMMON  in SECTION------------------- */
+
+#left_section,
+#right_section {
     display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #eaeaea;
 }
+
+#left_section > div,
+#right_section > div {
+    padding: 10px 5px;
+}
+
+
+/* ------------------------COMMON ELEMENTS----------------------------------- */
 
 .menu_inline li{
     display: inline;
@@ -36,11 +51,16 @@
 .menu_inline li i {
     font-size: 1.3em;
 }
+
 /* USERS BLOCK-------------------------- */
 
 .users_block {
     display: flex;
-    /* align-items: center; */
+    padding: 10px;
+}
+.users_block.users_chat {
+    border-bottom:1px solid lightgray;
+
 }
 .users_block img{
     height: 50px;
@@ -48,35 +68,35 @@
     margin-right: 10px;
 }
 
-/* -----------------------LEFT SECTION------------------- */
-
-#left_section {
-    flex-basis: 30%;
-    height: 100%;
-    background: #eaeaea;
-    display: flex;
-    flex-direction: column;
-}
-#left_section > div {
-    padding: 10px 5px;
-    border: 1px solid lightgray;
-}
-
-#user_header {
+/*LEFT/RIGHT HEADER--------- */
+#user_header,
+#header_chat {
     display: flex;
     justify-content: space-between;
     height:60px;
 }
 
-#user_header .users_block {
+#user_header .users_block ,
+#header_chat .users_block{
     align-items: center;
+    border: none;
 }
-#user_header .users_block img{
+#user_header .users_block img,
+#header_chat .users_block img{
     height: 40px;
 }
-#user_header_settings {
+#user_header_settings,
+#header_chat_settings {
     display: flex;
     align-items: center;
+}
+
+
+
+/* -----------------------LEFT SECTION------------------- */
+
+#left_section {
+    flex-basis: 30%;
 }
 
 
@@ -113,8 +133,6 @@
     padding:5px;
 }
 
-
-
 #chat_list_section {
     background:white;
     flex-grow: 1;
@@ -123,34 +141,10 @@
 
 
 /* -----------------------RIGHT SECTION------------------- */
-
 #right_section {
-    display: flex;
     flex-basis: 70%;
-    flex-direction: column;   
-    height: 100%;
-    background: #eaeaea;
+    border-left : 1px solid lightgray;
 }
-
-#right_section > div {
-    padding: 10px 5px;
-    border: 1px solid lightgray;
-}
-
-#header_chat {
-    display: flex;
-    justify-content: space-between;
-    height:60px;
-}
-#header_chat .users_block img{
-    height: 40px;
-}
-#header_chat_settings {
-    display: flex;
-    align-items: center;
-}
-
-
 
 /* MESSAGE SECTION---------------- */
 #message_section {

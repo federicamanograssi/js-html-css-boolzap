@@ -7,7 +7,7 @@
 
     <!-- --- EXTERNAL --- -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <!-- ----FONT--- -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="container">
+        <div id="myApp" class="container">
 
             <!-- LEFT SECTION----------- -->
             <div id="left_section">
@@ -54,13 +54,9 @@
 
                 <!-- CHATLIST----- -->
                 <div id="chat_list_section">
-                    <div class="users_block">
+                    <div v-for="(contact, index) in contacts" @click="showChat" class="users_block users_chat">
                         <img src="img/avatar_1.jpg" alt="">
-                        <span>Nome utente</span>
-                    </div>
-                    <div class="users_block">
-                        <img src="img/avatar_1.jpg" alt="">
-                        <span>Nome utente</span>
+                        <span>{{contact.name}}</span>
                     </div>
                 </div>
             </div>
@@ -97,5 +93,7 @@
             </div>
         </div>
     </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
