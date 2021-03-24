@@ -147,12 +147,18 @@
 }
 
 /* MESSAGE SECTION---------------- */
-#message_section {
+#right_section #message_section {
+    padding: 20px;
     flex-grow: 1;
     background-image: url('../img/mine.jpg');
     background-repeat: repeat;
     overflow-y: scroll;
-
+}
+.message {
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: green;
+    width: 45%;
 }
 
 

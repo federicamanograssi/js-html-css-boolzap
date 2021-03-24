@@ -55,7 +55,7 @@
                 <!-- CHATLIST----- -->
                 <div id="chat_list_section">
                     <div v-for="(contact, index) in contacts" @click="showChat" class="users_block users_chat">
-                        <img src="img/avatar_1.jpg" alt="">
+                        <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                         <span>{{contact.name}}</span>
                     </div>
                 </div>
@@ -82,7 +82,9 @@
                 </div>
 
                 <!-- MESSAGE SECTION---- -->
-                <div id="message_section"></div>
+                <div id="message_section">
+                    <div class="message">ciao</div>
+                </div>
 
                 <!-- INPUT SECTION---- -->
                 <div id="input_message_section">
