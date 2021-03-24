@@ -6,7 +6,7 @@ var app = new Vue({
             avatar: '_io'
         },
         activeChat : '-1',
-        // selected : [],
+        newMsg :'',
         contacts: [
             {
                 name: 'Michele',
@@ -94,7 +94,16 @@ var app = new Vue({
         ]
 
     },
-    // methods: {
-
-    // }
+    methods : {
+        sendMsg(){
+            if(this.newMsg != '' && this.activeChat != -1)
+            var msgSent = new Object;
+            msgSent.date = '';
+            msgSent.text = this.newMsg;
+            msgSent.status = 'sent';
+            this.contacts[this.activeChat].messages.push(msgSent)
+            this.newMsg = '';
+            console.log(this.contacts[this.activeChat].messages)
+        }
+    }
 })

@@ -72,6 +72,7 @@
 
 
             <!-- RIGHT SECTION----------- -->
+            
             <div id="right_section">
 
 
@@ -103,7 +104,8 @@
                 <!-- INPUT SECTION---- -->
                 <div id="input_message_section">
                     <div><i class="far fa-smile"></i></div>
-                    <div id="message_input"><input type="text" placeholder="Scrivi un messaggio"></div>
+                    <div id="message_input">
+                        <input v-model="newMsg" type="text" placeholder="Scrivi un messaggio" @keyup.enter="sendMsg()"></div>
                     <div><i class="fas fa-microphone"></i></div>
                 </div>
             </div>
