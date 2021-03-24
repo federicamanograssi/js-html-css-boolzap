@@ -190,8 +190,8 @@ a {
 .message_cloud {
     max-width: 60%;
     border-radius: 5px;
-    padding: 7px 10% 7px 10px;
-    margin-bottom: 5px;
+    padding: 10px 10% 10px 10px;
+    margin-bottom: 10px;
 }
 .message_row.message_received {
     justify-content: flex-start;

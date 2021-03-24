@@ -1,10 +1,12 @@
-var app = new Vue ({
-    el : '#myApp',
-    data : {
-        user : {
-            name : 'Federica',
-            avatar : '_io'
+var app = new Vue({
+    el: '#myApp',
+    data: {
+        user: {
+            name: 'Federica',
+            avatar: '_io'
         },
+        activeChat : '-1',
+        // selected : [],
         contacts: [
             {
                 name: 'Michele',
@@ -90,11 +92,9 @@ var app = new Vue ({
                 ],
             },
         ]
-        
+
     },
-    methods : {
-        showChat(){
-            console.log('Mostra chat')   
-        }
-    }
+    // methods: {
+
+    // }
 })

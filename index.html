@@ -57,7 +57,13 @@
 
                 <!-- CHATLIST----- -->
                 <div id="chat_list_section" class="bg_white">
-                    <div v-for="(contact, index) in contacts" @click="showChat" class="users_block users_chat">
+                    <!-- <div v-for="(contact, index) in contacts" 
+                    :class="{active:selected[0] == contact}" @click="selected.splice(0),selected.push(contact)" class="users_block users_chat">
+                        <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
+                        <span class="users_block_username">{{contact.name}}</span>
+                    </div> -->
+                    <div v-for="(contact, index) in contacts" 
+                    :class="{active:index == activeChat}" @click="activeChat = index" class="users_block users_chat">
                         <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                         <span class="users_block_username">{{contact.name}}</span>
                     </div>
@@ -71,10 +77,12 @@
 
                 <!-- HEADER CHAT----- -->
                 <div id="header_chat">
-                    <div class="users_block">
-                        <img src="img/avatar_io.jpg" alt="">
-                        <span class="users_block_username">Nome utente</span>
+                    <div v-if="activeChat != -1" class="users_block">
+                        <img :src="'img/avatar' + contacts[activeChat].avatar + '.jpg'" alt="">
+                        <span class="users_block_username">{{contacts[activeChat].name}}</span>
                     </div>
+                    <div v-else class="users_block"></div>
+
                     <div id="header_chat_settings">
                         <ul class="menu_inline">
                             <li><i class="fas fa-search"></i></li>
@@ -85,13 +93,12 @@
                 </div>
 
                 <!-- MESSAGE SECTION---- -->
-                <div id="message_section">
-                    <div class="message_row">
-                        <div class="message_cloud"></div>
-                    </div>
-                    <div class="message_row  message_sent">s</div>
-                        
+                <div v-if="activeChat != -1" id="message_section">
+                    <div v-for="message in contacts[activeChat].messages" class="message_row":class="(message.status == 'received')?'message_received':'message_sent'">
+                        <div class="message_cloud" >{{message.text}}</div>
+                    </div>                         
                 </div>
+                <div v-else id="message_section"></div>
 
                 <!-- INPUT SECTION---- -->
                 <div id="input_message_section">
