@@ -1,7 +1,10 @@
 var app = new Vue ({
     el : '#myApp',
     data : {
-        
+        user : {
+            name : 'Federica',
+            avatar : '_io'
+        },
         contacts: [
             {
                 name: 'Michele',

@@ -17,6 +17,9 @@
 </head>
 <body>
     <div class="container-fluid">
+
+        <!-- INIZIO MY APP----------- -->
+
         <div id="myApp" class="container">
 
             <!-- LEFT SECTION----------- -->
@@ -25,8 +28,8 @@
                 <!-- USER HEADER----- -->
                 <div id="user_header">
                     <div class="users_block">
-                        <img src="img/avatar_io.jpg" alt="">
-                        <span>Nome utente</span>
+                        <img :src="'img/avatar' + user.avatar + '.jpg'" alt="">
+                        <span class="users_block_username">{{user.name}}</span>
                     </div>
                     <div id="user_header_settings">
                         <ul class="menu_inline">
@@ -39,24 +42,24 @@
 
                 <!-- NOTIFICATIONS---- -->
                 <div id="notifications_section">
-                    <div><i class="fas fa-bell-slash"></i></div>
+                    <span><i class="fas fa-bell-slash"></i></span>
                     <div>
-                        <p>Ricevi notifiche di nuovi messaggi</p>
-                        <p>Attiva notifiche desktop</p>
+                        <p class="strong">Ricevi notifiche di nuovi messaggi</p>
+                        <p class="caption"><a href="#">Attiva notifiche desktop</a></p>
                     </div>
                 </div>
 
                 <!-- SEARCH BAR---- -->
                 <div id="search_bar_section">
-                    <div><i class="fas fa-search"></i></div>
-                    <div><input type="text" placeholder="Cerca o inizia una nuova chat"></div>
+                    <label for="search" class="bg_white"><i class="fas fa-search"></i></label>
+                    <input class="bg_white" type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
 
                 <!-- CHATLIST----- -->
-                <div id="chat_list_section">
+                <div id="chat_list_section" class="bg_white">
                     <div v-for="(contact, index) in contacts" @click="showChat" class="users_block users_chat">
                         <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
-                        <span>{{contact.name}}</span>
+                        <span class="users_block_username">{{contact.name}}</span>
                     </div>
                 </div>
             </div>
@@ -70,7 +73,7 @@
                 <div id="header_chat">
                     <div class="users_block">
                         <img src="img/avatar_io.jpg" alt="">
-                        <span>Nome utente</span>
+                        <span class="users_block_username">Nome utente</span>
                     </div>
                     <div id="header_chat_settings">
                         <ul class="menu_inline">
@@ -83,7 +86,12 @@
 
                 <!-- MESSAGE SECTION---- -->
                 <div id="message_section">
-                    <div class="message">ciao</div>
+                    <div class="message_row  message_received">
+                        <div class="message_cloud">ciao</div>
+                    </div>
+                    <div class="message_row  message_sent">
+                        <div class="message_cloud">ciao</div>
+                    </div>
                 </div>
 
                 <!-- INPUT SECTION---- -->
@@ -94,6 +102,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- FINE MY APP------------- -->
     </div>
 
     <script src="js/main.js"></script>
