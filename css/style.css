@@ -173,6 +173,34 @@ a {
     flex-basis: 70%;
     border-left : 1px solid lightgray;
 }
+#right_section.empty {
+    background-color: #f8f9fa;
+    position: relative;
+}
+#right_section.empty > div{
+    width: 60%;
+    height: 75%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: rgb(179, 179, 179);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#right_section.empty > div img{
+    width: 50%;
+    margin: 0 auto;
+}
+#right_section.empty h2{
+    color: initial;
+}
+#right_section.empty a{
+    color: #0cb8a6;
+}
+
 
 /* MESSAGE SECTION---------------- */
 #right_section #message_section {

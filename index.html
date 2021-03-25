@@ -72,17 +72,22 @@
 
 
             <!-- RIGHT SECTION----------- -->
-            
-            <div id="right_section">
-
-
+            <div v-if="activeChat == -1" id="right_section" class="empty">
+                <div>
+                    <img src="img/resta_connesso.jpg" alt="">
+                    <h2>Mantieni il telefono disconnesso</h2>
+                    <p>Boolzap si collega al tuo telefono per sincronizzare le milestone. Per ridurre i bonus di Mistretta, scollega il telefono anche da Slack.</p>
+                    <hr>
+                    <p><span><i class="fas fa-laptop"></i></span> Boolzap è disponibile per Classe#26. <a href="#">Bestemmiala qui.</a></p>
+                </div>
+            </div>
+            <div v-else id="right_section">
                 <!-- HEADER CHAT----- -->
                 <div id="header_chat">
-                    <div v-if="activeChat != -1" class="users_block">
+                    <div class="users_block">
                         <img :src="'img/avatar' + contacts[activeChat].avatar + '.jpg'" alt="">
                         <span class="users_block_username">{{contacts[activeChat].name}}</span>
                     </div>
-                    <div v-else class="users_block"></div>
 
                     <div id="header_chat_settings">
                         <ul class="menu_inline">
@@ -94,12 +99,11 @@
                 </div>
 
                 <!-- MESSAGE SECTION---- -->
-                <div v-if="activeChat != -1" id="message_section">
+                <div id="message_section">
                     <div v-for="message in contacts[activeChat].messages" class="message_row":class="(message.status == 'received')?'message_received':'message_sent'">
                         <div class="message_cloud" >{{message.text}}</div>
                     </div>                         
                 </div>
-                <div v-else id="message_section"></div>
 
                 <!-- INPUT SECTION---- -->
                 <div id="input_message_section">
@@ -109,6 +113,7 @@
                     <div><i class="fas fa-microphone"></i></div>
                 </div>
             </div>
+            
         </div>
 
         <!-- FINE MY APP------------- -->

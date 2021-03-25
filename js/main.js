@@ -103,7 +103,15 @@ var app = new Vue({
             msgSent.status = 'sent';
             this.contacts[this.activeChat].messages.push(msgSent)
             this.newMsg = '';
-            console.log(this.contacts[this.activeChat].messages)
+            setTimeout(this.autoAnswer,1500);
+        },
+
+        autoAnswer(){
+            var msgReceived = new Object;
+            msgReceived.date = '';
+            msgReceived.text = 'Ok';
+            msgReceived.status = 'received';
+            this.contacts[this.activeChat].messages.push(msgReceived)
         }
     }
 })
