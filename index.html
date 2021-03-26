@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- --- EXTERNAL --- -->
+    <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <!-- VUE.JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- DAY,JS -->
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <!-- ----FONT--- -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
@@ -52,18 +56,14 @@
                 <!-- SEARCH BAR---- -->
                 <div id="search_bar_section">
                     <label for="search" class="bg_white"><i class="fas fa-search"></i></label>
-                    <input class="bg_white" type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input v-model="filterChat" class="bg_white" type="text" v-on:keyup="filterSearch()" placeholder="Cerca o inizia una nuova chat">
                 </div>
 
                 <!-- CHATLIST----- -->
                 <div id="chat_list_section" class="bg_white">
-                    <!-- <div v-for="(contact, index) in contacts" 
-                    :class="{active:selected[0] == contact}" @click="selected.splice(0),selected.push(contact)" class="users_block users_chat">
-                        <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
-                        <span class="users_block_username">{{contact.name}}</span>
-                    </div> -->
+                    
                     <div v-for="(contact, index) in contacts" 
-                    :class="{active:index == activeChat}" @click="activeChat = index" class="users_block users_chat">
+                    :class="{active:index == activeChat, hidden:contact.visible == false}"  @click="activeChat = index" class="users_block users_chat">
                         <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
                         <span class="users_block_username">{{contact.name}}</span>
                     </div>
@@ -76,7 +76,7 @@
                 <div>
                     <img src="img/resta_connesso.jpg" alt="">
                     <h2>Mantieni il telefono disconnesso</h2>
-                    <p>Boolzap si collega al tuo telefono per sincronizzare le milestone. Per ridurre i bonus di Mistretta, scollega il telefono anche da Slack.</p>
+                    <p>Boolzap si collega al tuo telefono per sincronizzare le milestone. Per ridurre i bonus di Mistretta e Filippo, scollega il telefono anche da Slack.</p>
                     <hr>
                     <p><span><i class="fas fa-laptop"></i></span> Boolzap è disponibile per Classe#26. <a href="#">Bestemmiala qui.</a></p>
                 </div>
@@ -101,7 +101,10 @@
                 <!-- MESSAGE SECTION---- -->
                 <div id="message_section">
                     <div v-for="message in contacts[activeChat].messages" class="message_row":class="(message.status == 'received')?'message_received':'message_sent'">
-                        <div class="message_cloud" >{{message.text}}</div>
+                        <div class="message_cloud" >
+                            <p class="message_text">{{message.text}}</p>
+                            <p class="message_date">{{message.date}}</p>
+                        </div>
                     </div>                         
                 </div>
 

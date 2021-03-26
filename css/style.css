@@ -28,6 +28,11 @@
     transform: translate(-50%,-50%);
 
 }
+.clearfix {
+    display: table;
+    content: '';
+    clear: both;
+}
 
 /* STYLE---------- */
 .bg_white {
@@ -44,6 +49,8 @@
 a {
     color: inherit;
 }
+
+
 /* ---------------------- COMMON  in SECTION------------------- */
 
 #left_section,
@@ -78,7 +85,10 @@ a {
 }
 .users_block.users_chat {
     border-bottom:1px solid lightgray;
+}
 
+.users_block.users_chat.hidden {
+    display: none;
 }
 .users_block img{
     height: 50px;
@@ -204,6 +214,7 @@ a {
 
 /* MESSAGE SECTION---------------- */
 #right_section #message_section {
+    width: 100%;
     padding: 20px;
     flex-grow: 1;
     background-image: url('../img/mine.jpg');
@@ -211,14 +222,17 @@ a {
     overflow-y: scroll;
 }
 .message_row {
+    width: 100%;
     display: flex;
     padding-left: 8%;
     padding-right: 8%;
 }
 .message_cloud {
-    max-width: 60%;
+    /* PERCHè NON PRENDE LA PERCENTUALE? */
+    /* max-width: 60%; */
+    max-width: 400px;
     border-radius: 5px;
-    padding: 10px 10% 10px 10px;
+    padding: 10px ;
     margin-bottom: 10px;
 }
 .message_row.message_received {
@@ -233,6 +247,16 @@ a {
 .message_row.message_sent .message_cloud{
     background: #dcf8c6;
 }
+
+.message_text {
+    overflow-wrap: break-word;
+}
+.message_date {
+    margin-top: 5px;
+    font-size: 0.6em;
+    color:gray;
+    text-align: right;
+} 
 
 
 /* INPUT SECTION---------------- */

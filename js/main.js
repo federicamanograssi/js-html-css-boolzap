@@ -5,8 +5,9 @@ var app = new Vue({
             name: 'Federica',
             avatar: '_io'
         },
-        activeChat : '-1',
-        newMsg :'',
+        activeChat: '-1',
+        newMsg: '',
+        filterChat: '',
         contacts: [
             {
                 name: 'Michele',
@@ -94,24 +95,34 @@ var app = new Vue({
         ]
 
     },
-    methods : {
-        sendMsg(){
-            if(this.newMsg != '' && this.activeChat != -1)
-            var msgSent = new Object;
-            msgSent.date = '';
+    methods: {
+        sendMsg() {
+            if (this.newMsg != '' && this.activeChat != -1)
+                var msgSent = new Object;
+            msgSent.date = dayjs().format('DD MM YYYY hh:mm:ss');
             msgSent.text = this.newMsg;
             msgSent.status = 'sent';
             this.contacts[this.activeChat].messages.push(msgSent)
             this.newMsg = '';
-            setTimeout(this.autoAnswer,1500);
+            setTimeout(this.autoAnswer, 1500);
         },
 
-        autoAnswer(){
+        autoAnswer() {
             var msgReceived = new Object;
-            msgReceived.date = '';
+            msgReceived.date = dayjs().format('DD MM YYYY hh:mm:ss');
             msgReceived.text = 'Ok';
             msgReceived.status = 'received';
             this.contacts[this.activeChat].messages.push(msgReceived)
+        },
+        filterSearch() {
+            let filterChat = this.filterChat.toUpperCase();
+            this.contacts.filter(function (contact) {
+                if (contact.name.toUpperCase().includes(filterChat)) {
+                    contact.visible = true
+                } else {
+                    contact.visible = false
+                }
+            });
         }
     }
 })
