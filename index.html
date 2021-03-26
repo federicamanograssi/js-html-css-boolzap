@@ -100,10 +100,17 @@
 
                 <!-- MESSAGE SECTION---- -->
                 <div id="message_section">
-                    <div v-for="message in contacts[activeChat].messages" class="message_row":class="(message.status == 'received')?'message_received':'message_sent'">
-                        <div class="message_cloud" >
+                    <div v-for="(message, index) in contacts[activeChat].messages" class="message_row":class="(message.status == 'received')?'message_received':'message_sent'">
+                        <div class="message_cloud">
                             <p class="message_text">{{message.text}}</p>
                             <p class="message_date">{{message.date}}</p>
+                            <div class="message_setting">
+                                <i class="fas fa-chevron-down" @click="showSettingBox(index)"></i>
+                                <div class="message_setting_box" :class="{active:index == activeBoxSettings}">
+                                    <p>Info Messaggio</p>
+                                    <p>Cancella Messaggio</p>
+                                </div>
+                            </div>
                         </div>
                     </div>                         
                 </div>

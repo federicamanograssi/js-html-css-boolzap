@@ -6,8 +6,10 @@ var app = new Vue({
             avatar: '_io'
         },
         activeChat: '-1',
+        activeBoxSettings:'-1',
         newMsg: '',
         filterChat: '',
+        
         contacts: [
             {
                 name: 'Michele',
@@ -114,6 +116,7 @@ var app = new Vue({
             msgReceived.status = 'received';
             this.contacts[this.activeChat].messages.push(msgReceived)
         },
+
         filterSearch() {
             let filterChat = this.filterChat.toUpperCase();
             this.contacts.filter(function (contact) {
@@ -123,6 +126,11 @@ var app = new Vue({
                     contact.visible = false
                 }
             });
+        },
+        
+        showSettingBox(index){
+            console.log('presa')
+            this.activeBoxSettings = index;
         }
-    }
+    },
 })
