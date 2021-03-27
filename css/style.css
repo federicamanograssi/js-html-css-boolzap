@@ -73,27 +73,7 @@ a {
     font-size: 1.3em;
 }
 
-/* USERS BLOCK-------------------------- */
 
-.users_block {
-    display: flex;
-    padding: 10px;
-}
-.users_block.users_chat {
-    border-bottom:1px solid lightgray;
-}
-
-.users_block.users_chat.hidden {
-    display: none;
-}
-.users_block img{
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-.users_block_username {
-    font-weight:bold;
-}
 
 /*LEFT/RIGHT HEADER--------- */
 #user_header,
@@ -170,7 +150,52 @@ a {
     background-color: rgb(233, 233, 233);
 }
 #chat_list_section .users_block.active{
-    background-color: gray;
+    background-color: rgb(151, 151, 151);
+}
+
+/* USERS BLOCK-------------------------- */
+
+.users_block {
+    display: flex;
+    padding: 10px;
+}
+.users_block.users_chat {
+    border-bottom:1px solid lightgray;
+}
+
+.users_block.users_chat.hidden {
+    display: none;
+}
+
+.users_block .profile_pic {
+    width: 70px;
+}
+.users_block .profile_pic img{
+    height: 50px;
+    border-radius: 50%;
+}
+
+.users_block .info_chat {
+    width: calc(100% - 70px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.users_block .info_chat_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.users_block .last_msg_time{
+    font-size: 0.7em;
+    color:gray;
+}
+.users_block .last_msg {
+    font-size: 0.9em;
+}
+.users_block_username {
+    font-weight:bold;
 }
 
 

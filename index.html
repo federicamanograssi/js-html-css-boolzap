@@ -62,10 +62,22 @@
                 <!-- CHATLIST----- -->
                 <div id="chat_list_section" class="bg_white">
                     
-                    <div v-for="(contact, index) in contacts" 
+                    <!-- SINGLE CHAT ROW------ -->
+            
+                    <div v-for="(contact, index, messages) in contacts" 
                     :class="{active:index == activeChat, hidden:contact.visible == false}"  @click="activeChat = index" class="users_block users_chat">
-                        <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
-                        <span class="users_block_username">{{contact.name}}</span>
+                        <div class="profile_pic">
+                            <img :src="'img/avatar' + contact.avatar + '.jpg'" alt="">
+                        </div>
+                        <div class="info_chat">
+                            <div class="info_chat_top">
+                                <span class="users_block_username">{{contact.name}}</span>
+                                <span class="last_msg_time">{{contact.messages[contact.messages.length-1].date}}</span>
+                            </div>
+                            <div class="last_msg">{{contact.messages[contact.messages.length-1].text}}</div>
+                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -100,12 +112,19 @@
 
                 <!-- MESSAGE SECTION---- -->
                 <div id="message_section">
+
+                    <!-- SINGLE MSG ROW---------- -->
                     <div v-for="(message, index) in contacts[activeChat].messages" class="message_row":class="(message.status == 'received')?'message_received':'message_sent'">
+
+                        <!-- SINGLE MSG CLOUD--------- -->
                         <div class="message_cloud">
                             <p class="message_text">{{message.text}}</p>
                             <p class="message_date">{{message.date}}</p>
+
                             <div class="message_setting">
                                 <i class="fas fa-chevron-down" @click="showSettingBox(index)"></i>
+
+                                <!-- MSG SETTING BOX---------- -->
                                 <div class="message_setting_box" :class="{active:index == activeBoxSettings}" @mouseleave="activeBoxSettings ='-1'">
                                     <p>Info Messaggio</p>
                                     <p @click="deleteMsg(index),activeBoxSettings ='-1'">Cancella Messaggio</p>
