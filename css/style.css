@@ -254,9 +254,7 @@ a {
     color:gray;
     text-align: right;
 } 
-.message_setting.hidden{
-    display: none;
-}
+
 .message_setting {
     display: none;
     position: absolute;
@@ -284,10 +282,19 @@ a {
     display:none;
     min-width: 200px;
     max-width: 350px;
-    background: grey;
-    padding: 10px;
+    background: white;
+    color: black;
+    border-radius: 5px;
+    padding: 15px;
     z-index: 999;
     overflow: visible;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+.message_setting_box p{
+    margin-bottom: 7px;
+}
+.message_setting_box p:hover{
+    cursor: pointer;
 }
 
 

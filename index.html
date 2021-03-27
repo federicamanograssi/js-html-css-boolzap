@@ -106,9 +106,9 @@
                             <p class="message_date">{{message.date}}</p>
                             <div class="message_setting">
                                 <i class="fas fa-chevron-down" @click="showSettingBox(index)"></i>
-                                <div class="message_setting_box" :class="{active:index == activeBoxSettings}">
+                                <div class="message_setting_box" :class="{active:index == activeBoxSettings}" @mouseleave="activeBoxSettings ='-1'">
                                     <p>Info Messaggio</p>
-                                    <p>Cancella Messaggio</p>
+                                    <p @click="deleteMsg(index)">Cancella Messaggio</p>
                                 </div>
                             </div>
                         </div>

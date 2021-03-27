@@ -129,8 +129,11 @@ var app = new Vue({
         },
         
         showSettingBox(index){
-            console.log('presa')
             this.activeBoxSettings = index;
+        },
+
+        deleteMsg(index){
+            this.contacts[this.activeChat].messages.splice(index,1)
         }
     },
 })
