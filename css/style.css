@@ -91,6 +91,8 @@ a {
 #user_header .users_block img,
 #header_chat .users_block img{
     height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 #user_header_settings,
 #header_chat_settings {

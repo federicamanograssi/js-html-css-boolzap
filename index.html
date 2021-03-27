@@ -97,9 +97,21 @@
                 <!-- HEADER CHAT----- -->
                 <div id="header_chat">
                     <div class="users_block">
+                        <div class="profile_pic">
+                            <img :src="'img/avatar' + contacts[activeChat].avatar + '.jpg'" alt="">
+                        </div>
+                        <div class="info_chat">
+                            <div class="info_chat_top">
+                                <span class="users_block_username">{{contacts[activeChat].name}}</span>
+                            </div>
+                            <div class="last_msg_time">Ultimo accesso {{contacts[activeChat].messages[contacts[activeChat].messages.length-1].date}}</div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="users_block">
                         <img :src="'img/avatar' + contacts[activeChat].avatar + '.jpg'" alt="">
                         <span class="users_block_username">{{contacts[activeChat].name}}</span>
-                    </div>
+                    </div> -->
 
                     <div id="header_chat_settings">
                         <ul class="menu_inline">
