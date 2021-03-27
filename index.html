@@ -108,7 +108,7 @@
                                 <i class="fas fa-chevron-down" @click="showSettingBox(index)"></i>
                                 <div class="message_setting_box" :class="{active:index == activeBoxSettings}" @mouseleave="activeBoxSettings ='-1'">
                                     <p>Info Messaggio</p>
-                                    <p @click="deleteMsg(index)">Cancella Messaggio</p>
+                                    <p @click="deleteMsg(index),activeBoxSettings ='-1'">Cancella Messaggio</p>
                                 </div>
                             </div>
                         </div>
